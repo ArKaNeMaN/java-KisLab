@@ -5,8 +5,6 @@ services:
     image: 'docker-kislab-app:latest'
     build:
       context: .
-      args:
-        JAR_FILE: build/libs/*.jar
     container_name: app
     depends_on:
       - mariadb

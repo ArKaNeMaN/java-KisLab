@@ -1,4 +1,11 @@
+FROM gradle:jdk19-alpine as gradle
+
+WORKDIR /appSrc
+COPY . .
+RUN gradle build
+
 FROM openjdk:19-jdk-slim
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+
+COPY --from=gradle /appSrc/build/libs/*.jar app.jar
+
 ENTRYPOINT ["java", "-jar", "/app.jar"]
