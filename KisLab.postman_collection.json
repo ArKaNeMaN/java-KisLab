@@ -300,7 +300,7 @@
 	"variable": [
 		{
 			"key": "service_host",
-			"value": "localhost:8080",
+			"value": "http://arkan1.ru:8080",
 			"type": "string"
 		},
 		{
