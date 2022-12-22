@@ -28,6 +28,16 @@ public class PluginsController {
         }
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<PluginEntity> getPlugin(@PathVariable Long id) {
+        try {
+            var opt = pluginRepository.findById(id);
+            return opt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
     @PutMapping("{id}")
     public ResponseEntity<PluginEntity> updatePlugin(@RequestBody PluginEntity plugin, @PathVariable Long id) {
         try {
