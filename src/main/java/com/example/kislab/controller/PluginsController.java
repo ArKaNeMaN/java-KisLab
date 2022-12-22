@@ -37,7 +37,7 @@ public class PluginsController {
                 pluginEntity.setName(plugin.getName());
                 pluginEntity.setDescription(plugin.getDescription());
                 pluginEntity.setVersion(plugin.getVersion());
-                
+                pluginRepository.save(pluginEntity);
 
                 return ResponseEntity.ok(pluginEntity);
             } else {
