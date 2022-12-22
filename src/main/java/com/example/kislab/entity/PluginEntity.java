@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class PluginEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,6 +16,14 @@ public class PluginEntity {
     private String version;
 
     public PluginEntity() {
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

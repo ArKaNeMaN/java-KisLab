@@ -37,6 +37,8 @@ public class PluginsController {
                 pluginEntity.setName(plugin.getName());
                 pluginEntity.setDescription(plugin.getDescription());
                 pluginEntity.setVersion(plugin.getVersion());
+                
+
                 return ResponseEntity.ok(pluginEntity);
             } else {
                 return ResponseEntity.notFound().build();
@@ -47,7 +49,7 @@ public class PluginsController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Boolean> updatePlugin(@PathVariable Long id) {
+    public ResponseEntity<Boolean> deletePlugin(@PathVariable Long id) {
         try {
             if (!pluginRepository.existsById(id)) {
                 return ResponseEntity.notFound().build();
